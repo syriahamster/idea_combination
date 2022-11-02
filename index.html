@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디어 조합기</title>
+  </head>
+  <body>
+      <button id="btn" onclick="myFunction()">새로운 아이디어 조합 얻기</button>
+      <h3 id="wordlist"></h3>
+  </body>
+  <script type="text/javascript" src="wordlist.js"></script>
+  <script type="text/javascript">
+    function random(words) {
+      const shuffled = words.sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, 3);
+    }
+    function myFunction() {
+      document.getElementById("wordlist").innerHTML = random(words);
+    }
+    random(words);
+  </script>
+</html>
