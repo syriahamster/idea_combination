@@ -19,24 +19,12 @@
   cursor: pointer;
 }
 
-.historyContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-#history {
-  list-style: none;
-  margin: 0px;
-  padding: 10px 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.history-item {
-  margin: 4px 0px;
-  color: gray;
+#newIdeaTextArea {
+  width: 300px;
+  border: 1px solid gray;
+  outline-color: green;
+  border-radius: 5px;
+  height: 100%;
+  padding: 10px;
   font-size: 1rem;
 }

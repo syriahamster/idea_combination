@@ -10,12 +10,9 @@
   <body>
     <div class="container">
       <h1>아이디어 조합기</h1>
-      <button class="button" id="btn" onclick="myFunction()">나와라!</button>
+      <button class="button" id="btn" onclick="selectWords()">새로 뽑기</button>
       <h2 id="wordlist"></h2>
-      <div class="historyContainer">
-        <h3>기록 ▼</h3>
-        <ul id="history"></ul>
-      </div>
+      <div id="ideaTextArea"></div>
     </div>
   </body>
   <script type="text/javascript" src="wordlist.js"></script>
@@ -24,18 +21,35 @@
       const shuffled = words.sort(() => 0.5 - Math.random());
       return shuffled.slice(0, 3);
     };
-    const myFunction = () => {
-      const newComb = random(words).join(", ");
-      document.getElementById("wordlist").innerHTML = newComb;
-      addHistory(newComb);
+
+    const setupIdeaTextArea = () => {
+      const ideaTextArea = document.getElementById("ideaTextArea");
+      if (ideaTextArea.hasChildNodes()) {
+        ideaTextArea.removeChild(ideaTextArea.firstChild);
+      }
+      const newIdeaTextArea = document.createElement("textarea");
+      newIdeaTextArea.setAttribute("id", "newIdeaTextArea");
+      newIdeaTextArea.setAttribute(
+        "placeholder",
+        "여기에서 아이디어를 확장해봐요!"
+      );
+      newIdeaTextArea.setAttribute("rows", "10");
+      ideaTextArea.appendChild(newIdeaTextArea);
     };
 
-    const addHistory = (comb) => {
-      const newitem = document.createElement("li");
-      newitem.innerHTML = comb;
-      newitem.className = "history-item";
-      document.getElementById("history").appendChild(newitem);
-      // document.getElementById("history").prepend(newitem);
+    const selectWords = () => {
+      const ideaTextArea = document.getElementById("newIdeaTextArea");
+      if (ideaTextArea?.value?.length > 0) {
+        const r = window.confirm(
+          "현재 작성중인 아이디어가 있습니다. 초기화하시겠습니까?"
+        );
+        if (!r) {
+          return;
+        }
+      }
+      const newComb = random(words).join(", ");
+      document.getElementById("wordlist").innerHTML = newComb;
+      setupIdeaTextArea();
     };
   </script>
 </html>
