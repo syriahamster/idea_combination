@@ -11,17 +11,31 @@
     <div class="container">
       <h1>아이디어 조합기</h1>
       <button class="button" id="btn" onclick="myFunction()">나와라!</button>
-      <h3 id="wordlist"></h3>
+      <h2 id="wordlist"></h2>
+      <div class="historyContainer">
+        <h3>기록 ▼</h3>
+        <ul id="history"></ul>
+      </div>
     </div>
   </body>
   <script type="text/javascript" src="wordlist.js"></script>
   <script type="text/javascript">
-    function random(words) {
+    const random = (words) => {
       const shuffled = words.sort(() => 0.5 - Math.random());
       return shuffled.slice(0, 3);
-    }
-    function myFunction() {
-      document.getElementById("wordlist").innerHTML = random(words).join(", ");
-    }
+    };
+    const myFunction = () => {
+      const newComb = random(words).join(", ");
+      document.getElementById("wordlist").innerHTML = newComb;
+      addHistory(newComb);
+    };
+
+    const addHistory = (comb) => {
+      const newitem = document.createElement("li");
+      newitem.innerHTML = comb;
+      newitem.className = "history-item";
+      document.getElementById("history").appendChild(newitem);
+      // document.getElementById("history").prepend(newitem);
+    };
   </script>
 </html>
