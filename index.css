@@ -28,3 +28,19 @@
   padding: 10px;
   font-size: 1rem;
 }
+
+.link-icon.twitter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 36px;
+  padding: 4px 16px 4px 0px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 60px;
+  width: 200px;
+  height: 40px;
+  background-color: #1da1f2;
+  background-image: url(./images/twitter.svg);
+  background-repeat: no-repeat;
+}

@@ -13,10 +13,12 @@
       <button class="button" id="btn" onclick="selectWords()">새로 뽑기</button>
       <h2 id="wordlist"></h2>
       <div id="ideaTextArea"></div>
+      <div id="share"></div>
     </div>
   </body>
   <script type="text/javascript" src="wordlist.js"></script>
   <script type="text/javascript">
+    let curCombination = "";
     const random = (words) => {
       const shuffled = words.sort(() => 0.5 - Math.random());
       return shuffled.slice(0, 3);
@@ -37,6 +39,15 @@
       ideaTextArea.appendChild(newIdeaTextArea);
     };
 
+    const setupTwitterBtn = () => {
+      const shareContainer = document.getElementById("share");
+      const twt = document.createElement("div");
+      twt.setAttribute("class", "link-icon twitter");
+      twt.setAttribute("onclick", "shareTwitter()");
+      twt.innerHTML = "<div>트위터로 공유하기</div>";
+      shareContainer.appendChild(twt);
+    };
+
     const selectWords = () => {
       const ideaTextArea = document.getElementById("newIdeaTextArea");
       if (ideaTextArea?.value?.length > 0) {
@@ -50,6 +61,20 @@
       const newComb = random(words).join(", ");
       document.getElementById("wordlist").innerHTML = newComb;
       setupIdeaTextArea();
+      setupTwitterBtn();
+      curCombination = newComb;
+    };
+
+    const shareTwitter = () => {
+      const ideaTextArea = document.getElementById("newIdeaTextArea");
+      const idea = ideaTextArea.value;
+      const snsTitle = `${curCombination}\n${idea}`;
+      const url =
+        "http://twitter.com/share?url=" +
+        encodeURIComponent(window.location.href) +
+        "&text=" +
+        encodeURIComponent(snsTitle);
+      window.open(url, "tweetPop", "width=486, height=286,scrollbars=yes");
     };
   </script>
 </html>
