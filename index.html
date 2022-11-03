@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>아이디어 조합기</title>
   </head>
   <body>
-    <h1>아이디어 조합기</h1>
-    <ul>
-      <li>
-        아이디어 발상 방법을 사용해보세요.
-      </li>
-      <li>
-        100개의 단어 중 3개를 랜덤으로 선택해 출력합니다
-      </li>
-      <li>
-        3개의 단어로 새로운 아이디어를 만들어보세요.
-      </li>
-    </ul>
-    <button id="btn" onclick="myFunction()">새로운 아이디어 조합 얻기</button>
-    <h3 id="wordlist"></h3>
+    <div class="container">
+      <h1>아이디어 조합기</h1>
+      <button class="button" id="btn" onclick="myFunction()">나와라!</button>
+      <h3 id="wordlist"></h3>
+    </div>
   </body>
   <script type="text/javascript" src="wordlist.js"></script>
   <script type="text/javascript">
