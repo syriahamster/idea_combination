@@ -41,6 +41,9 @@
 
     const setupTwitterBtn = () => {
       const shareContainer = document.getElementById("share");
+      if (shareContainer.hasChildNodes()) {
+        shareContainer.removeChild(shareContainer.firstChild);
+      }
       const twt = document.createElement("div");
       twt.setAttribute("class", "link-icon twitter");
       twt.setAttribute("onclick", "shareTwitter()");
@@ -60,15 +63,15 @@
       }
       const newComb = random(words).join(", ");
       document.getElementById("wordlist").innerHTML = newComb;
+      curCombination = newComb;
       setupIdeaTextArea();
       setupTwitterBtn();
-      curCombination = newComb;
     };
 
     const shareTwitter = () => {
       const ideaTextArea = document.getElementById("newIdeaTextArea");
       const idea = ideaTextArea.value;
-      const snsTitle = `${curCombination}\n${idea}`;
+      const snsTitle = `[${curCombination}]로 만든 아이디어\n${idea}\n\n`;
       const url =
         "http://twitter.com/share?url=" +
         encodeURIComponent(window.location.href) +
