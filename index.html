@@ -33,9 +33,10 @@
       newIdeaTextArea.setAttribute("id", "newIdeaTextArea");
       newIdeaTextArea.setAttribute(
         "placeholder",
-        "여기에서 아이디어를 확장해봐요!"
+        "여기에서 아이디어를 확장해봐요!\n최대 110자"
       );
       newIdeaTextArea.setAttribute("rows", "10");
+      newIdeaTextArea.setAttribute("maxLength", "110");
       ideaTextArea.appendChild(newIdeaTextArea);
     };
 
@@ -71,7 +72,7 @@
     const shareTwitter = () => {
       const ideaTextArea = document.getElementById("newIdeaTextArea");
       const idea = ideaTextArea.value;
-      const snsTitle = `[${curCombination}]로 만든 아이디어\n${idea}\n\n`;
+      const snsTitle = `[${curCombination}]\n${idea}\n\n`;
       const url =
         "http://twitter.com/share?url=" +
         encodeURIComponent(window.location.href) +
