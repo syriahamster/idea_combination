@@ -5,3 +5,7 @@
 # 링크
 
 https://idea-combination.pages.dev/
+
+# 개발환경
+- vscode 의 preetier 를 사용하여 코드를 정리하였습니다.
+- html, js, css 뿐이므로 브라우저 외 별도의 설정이 필요 없습니다.
